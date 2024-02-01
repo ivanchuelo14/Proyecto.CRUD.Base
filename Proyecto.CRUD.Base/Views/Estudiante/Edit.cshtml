@@ -1,0 +1,37 @@
+﻿@model EstudianteViewModel
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>Agregar Estudiante</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="New" asp-controller="Estudiante">
+                <div class="form-group">
+                    <label for="apellido">Nombre:</label>
+                    <input type="text" asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre" required>
+                    <span asp-validation-for="Nombre"></span>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" asp-for="Apellido" class="form-control" placeholder="Ingrese el apellido" required>
+                    <span asp-validation-for="Apellido"></span>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Numero de documento:</label>
+                    <input type="text" asp-for="NumeroDocumento" class="form-control" placeholder="Ingrese el numero de documento" required>
+                    <span asp-validation-for="NumeroDocumento"></span>
+                </div>
+                <div class="form-group">
+                    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" class="form-control" asp-for="FechaNacimiento" name="fechaNacimiento" required>
+                    <span asp-validation-for="FechaNacimiento"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-secondary float-right" asp-action="Index" asp-controller="Estudiante">Regresar</a>
+        </div>
+    </div>
+</div>

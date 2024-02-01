@@ -1,0 +1,45 @@
+﻿@model EstudianteFilterViewModel
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>Lista de Estudiantes</h2>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Número de Documento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align:center;">
+                    @foreach (var item in Model.Estudiantes)
+                    {
+                        <tr>
+                            <td>@item.Nombre.ToString()</td>
+                            <td>@item.Apellido.ToString()</td>
+                            <td>@item.NumeroDocumento.ToString()</td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a asp-action="Edit" asp-controller="Estudiante" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-warning">
+                                        <i class="fa fa-pencil-alt"></i> Editar
+                                    </a>
+                                    <a asp-action="Delete" asp-controller="Estudiante" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-danger">
+                                        <i class="fa fa-trash"></i> Eliminar
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-primary" asp-action="New" asp-controller="Estudiante">Agregar Estudiante</a>
+            <a class="btn btn-secondary float-right" asp-action="Index" asp-controller="Home">Regresar</a>
+        </div>
+    </div>
+</div>
