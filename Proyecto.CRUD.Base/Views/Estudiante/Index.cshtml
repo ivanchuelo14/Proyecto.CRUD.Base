@@ -16,24 +16,27 @@
                     </tr>
                 </thead>
                 <tbody style="text-align:center;">
-                    @foreach (var item in Model.Estudiantes)
+                    @if (Model.Estudiantes != null && Model.Estudiantes.Count > 0)
                     {
-                        <tr>
-                            <td>@item.Nombre.ToString()</td>
-                            <td>@item.Apellido.ToString()</td>
-                            <td>@item.NumeroDocumento.ToString()</td>
-                            <td class="text-center">
-                                <div class="btn-group">
-                                    <a asp-action="Edit" asp-controller="Estudiante" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-warning">
-                                        <i class="fa fa-pencil-alt"></i> Editar
-                                    </a>
-                                    <a asp-action="Delete" asp-controller="Estudiante" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-danger">
-                                        <i class="fa fa-trash"></i> Eliminar
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                    }
+                        @foreach (var item in Model.Estudiantes)
+                        {
+                            <tr>
+                                <td>@item.Nombre.ToString()</td>
+                                <td>@item.Apellido.ToString()</td>
+                                <td>@item.NumeroDocumento.ToString()</td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                        <a asp-action="Edit" asp-controller="Estudiante" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-warning">
+                                            <i class="fa fa-pencil-alt"></i> Editar
+                                        </a>
+                                        <a asp-action="Delete" asp-controller="Estudiante" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-danger">
+                                            <i class="fa fa-trash"></i> Eliminar
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }                  
                 </tbody>
             </table>
         </div>
