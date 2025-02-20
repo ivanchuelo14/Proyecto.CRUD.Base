@@ -19,6 +19,7 @@ namespace Proyecto.CRUD.Base.Controllers
             {
                 Estudiantes = _estudianteService.GetAllEstudiantes()
             };
+
             return View(model);
         }
     }
